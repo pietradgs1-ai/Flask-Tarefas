@@ -1,15 +1,19 @@
 <html>
     <head>
        <title>Minhas tarefas.</title>
+       <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
-             Aqui fica a lista de tarefas-
+
+      <div class="cartao">
+
+             <h1>Aqui fica a lista de tarefas</h1>
 
              {% if lista %}
              <ol> 
                  {% for item in lista %}
                     <li> {{item}}</li>
-                    <a href="/delete/{{loop.index0}}"><button> Excluir </button> </a>
+                    <a href="/delete/{{loop.index0}}"><button class="lixo"> 🗑️ </button> </a>
                  {% endfor %}
              </ol>
             {% else %}
@@ -19,6 +23,7 @@
          <form action="/add" method="post">
             <input type="text" name="nova">
             <button type="submit">Adicionar</button>
-         </form>  
+         </form> 
+      </div>   
     </body>
 </html>
